@@ -44,21 +44,24 @@
    LOGO
    ========================================= */
 
-.logo {
+  .logo {
   justify-self: start;
 
-  color: #ffffff;
-
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.045em;
+  display: inline-flex;
+  align-items: center;
 
   transition: opacity 180ms ease;
 }
 
 .logo:hover {
   opacity: 0.62;
+}
+
+.logoImage {
+  display: block;
+
+  width: 92px;
+  height: auto;
 }
 
 
@@ -323,9 +326,9 @@
     border-radius: 14px;
   }
 
-  .logo {
-    font-size: 17px;
-  }
+  .logoImage {
+  width: 82px;
+}
 
   .mobileMenu {
     display: block;

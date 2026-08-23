@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import styles from "./Header.module.css";
+import Image from "next/image";
 
 const navigation = [
   { label: "About", href: "/#about" },
@@ -13,8 +14,15 @@ export default function Header() {
     <header className={styles.header}>
       <Container className={styles.inner}>
         <Link href="/#top" className={styles.logo} aria-label="BRLANT Home">
-          BRLANT
-        </Link>
+  <Image
+    src="/brand/brlant-wordmark.svg"
+    alt="BRLANT"
+    width={461}
+    height={132}
+    priority
+    className={styles.logoImage}
+  />
+</Link>
 
         <nav className={styles.nav} aria-label="Main navigation">
           {navigation.map((item) => (
