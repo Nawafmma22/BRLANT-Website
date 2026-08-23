@@ -1,3 +1,7 @@
+/* =========================================
+   HEADER — DESKTOP
+   ========================================= */
+
 .header {
   position: fixed;
   top: 0;
@@ -6,7 +10,6 @@
   z-index: 1000;
 
   width: 100%;
-
   padding-top: 24px;
 
   pointer-events: none;
@@ -31,14 +34,15 @@
   backdrop-filter: blur(22px);
   -webkit-backdrop-filter: blur(22px);
 
-  box-shadow:
-    0 8px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
 
   pointer-events: auto;
 }
 
 
-/* LOGO */
+/* =========================================
+   LOGO
+   ========================================= */
 
 .logo {
   justify-self: start;
@@ -58,12 +62,13 @@
 }
 
 
-/* NAVIGATION */
+/* =========================================
+   DESKTOP NAVIGATION
+   ========================================= */
 
 .nav {
   display: flex;
   align-items: center;
-
   gap: 34px;
 }
 
@@ -94,8 +99,7 @@
   transform: scaleX(0);
   transform-origin: right;
 
-  transition:
-    transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav a:hover {
@@ -108,7 +112,9 @@
 }
 
 
-/* CTA */
+/* =========================================
+   DESKTOP CTA
+   ========================================= */
 
 .cta {
   justify-self: end;
@@ -118,7 +124,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   gap: 12px;
 
   padding: 0 18px;
@@ -140,13 +145,11 @@
 .cta span {
   font-size: 14px;
 
-  transition:
-    transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cta:hover {
   transform: translateY(-2px);
-
   background: #e9e9e9;
 }
 
@@ -156,7 +159,7 @@
 
 
 /* =========================================
-   MOBILE MENU
+   MOBILE MENU — HIDDEN ON DESKTOP
    ========================================= */
 
 .mobileMenu {
@@ -190,14 +193,12 @@
     position: relative;
 
     display: block;
-
     justify-self: end;
   }
 
   .mobileMenu summary {
     display: flex;
     align-items: center;
-
     gap: 14px;
 
     color: #ffffff;
@@ -206,6 +207,7 @@
 
     font-size: 11px;
     font-weight: 600;
+    line-height: 1;
 
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -218,7 +220,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     gap: 5px;
   }
 
@@ -230,8 +231,7 @@
 
     background: #ffffff;
 
-    transition:
-      transform 300ms ease;
+    transition: transform 300ms ease;
   }
 
   .mobileMenu[open] .menuIcon i:first-child {
@@ -261,6 +261,7 @@
     background: rgba(9, 9, 9, 0.96);
 
     backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
   }
 
   .mobilePanel > a {
@@ -316,7 +317,9 @@
 
   .inner {
     min-height: 56px;
+
     padding: 0 16px;
+
     border-radius: 14px;
   }
 
@@ -324,12 +327,58 @@
     font-size: 17px;
   }
 
+  .mobileMenu {
+    display: block;
+    justify-self: end;
+  }
+
   .mobileMenu summary {
+    display: flex;
+    align-items: center;
     gap: 10px;
+
+    color: #ffffff;
+
     font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    cursor: pointer;
   }
 
   .menuIcon {
     width: 20px;
+    height: 14px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .menuIcon i {
+    display: block;
+
+    width: 100%;
+    height: 1px;
+
+    background: #ffffff;
+  }
+
+  .mobilePanel {
+    top: 46px;
+
+    width: min(340px, calc(100vw - 32px));
+
+    padding: 16px;
+  }
+
+  .mobilePanel > a {
+    min-height: 58px;
+
+    font-size: 20px;
   }
 }
