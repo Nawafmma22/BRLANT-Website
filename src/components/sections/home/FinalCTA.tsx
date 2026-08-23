@@ -4,7 +4,7 @@ import styles from "./FinalCTA.module.css";
 
 export default function FinalCTA() {
   return (
-    <section className={styles.section}>
+    <section id="contact" className={styles.section}>
       <Container>
         <div className={styles.topLine}>
           <span className={styles.label}>LET&apos;S TALK</span>
@@ -19,7 +19,7 @@ export default function FinalCTA() {
             <span>IN MIND?</span>
           </h2>
 
-          <Link href="/contact" className={styles.cta}>
+          <a href="#contact" className={styles.cta}>
             <span>LET&apos;S</span>
 
             <span className={styles.ctaBottom}>
@@ -28,7 +28,7 @@ export default function FinalCTA() {
                 ↗
               </span>
             </span>
-          </Link>
+          </a>
         </div>
 
         <div className={styles.bottom}>

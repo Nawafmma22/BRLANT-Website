@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: "BRLANT | Events, Exhibitions & Experiences",
@@ -14,10 +16,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" id="top">
       <body>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
