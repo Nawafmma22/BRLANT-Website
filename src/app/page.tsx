@@ -4,6 +4,7 @@ import Impact from "@/components/sections/home/Impact";
 import Services from "@/components/sections/home/Services";
 import SelectedProjects from "@/components/sections/home/SelectedProjects";
 import WhyBrlant from "@/components/sections/home/WhyBrlant";
+import Clients from "@/components/sections/home/Clients";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Services />
       <SelectedProjects />
       <WhyBrlant />
+      <Clients />
     </main>
   );
 }
