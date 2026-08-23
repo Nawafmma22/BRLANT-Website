@@ -1,0 +1,398 @@
+.section {
+  position: relative;
+  padding: 150px 0 160px;
+
+  overflow: hidden;
+
+  background: #090909;
+  color: #ffffff;
+}
+
+.topLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 24px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.index,
+.label {
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.16em;
+}
+
+.intro {
+  padding: 54px 0 100px;
+}
+
+.eyebrow {
+  margin: 0 0 26px;
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.heading {
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  max-width: 1180px;
+
+  font-size: clamp(58px, 7.5vw, 120px);
+  font-weight: 600;
+  line-height: 0.88;
+  letter-spacing: -0.065em;
+}
+
+.heading span {
+  display: block;
+}
+
+.headingMuted {
+  color: rgba(255, 255, 255, 0.32);
+}
+
+.description {
+  max-width: 580px;
+
+  margin: 64px 0 0;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+
+
+/* =========================================
+   PROJECTS
+   ========================================= */
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+}
+
+.project {
+  position: relative;
+}
+
+.media {
+  position: relative;
+
+  aspect-ratio: 16 / 8.5;
+
+  overflow: hidden;
+
+  background-position: center;
+  background-size: cover;
+
+  transition:
+    transform 600ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 600ms ease;
+}
+
+/*
+  These gradients remain visible even before
+  the real project images are uploaded.
+*/
+
+.projectOne {
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(13, 21, 35, 0.28),
+      rgba(3, 3, 3, 0.82)
+    ),
+    url("/images/projects/world-investment-conference.jpg");
+}
+
+.projectTwo {
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(36, 16, 50, 0.25),
+      rgba(3, 3, 3, 0.82)
+    ),
+    url("/images/projects/wta-finals.jpg");
+}
+
+.projectThree {
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(18, 46, 37, 0.24),
+      rgba(3, 3, 3, 0.84)
+    ),
+    url("/images/projects/cop16.jpg");
+}
+
+.mediaOverlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.78) 0%,
+      rgba(0, 0, 0, 0.12) 46%,
+      rgba(0, 0, 0, 0.22) 100%
+    );
+
+  transition: background 500ms ease;
+}
+
+.mediaTop {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  right: 28px;
+
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.mediaArrow {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+
+  z-index: 2;
+
+  width: 58px;
+  height: 58px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(10px);
+
+  font-size: 20px;
+
+  transition:
+    transform 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    background 300ms ease;
+}
+
+.project:hover .media {
+  transform: scale(0.992);
+}
+
+.project:hover .mediaOverlay {
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.04) 52%,
+      rgba(0, 0, 0, 0.14) 100%
+    );
+}
+
+.project:hover .mediaArrow {
+  transform: rotate(45deg);
+  background: #ffffff;
+  color: #090909;
+}
+
+
+/* =========================================
+   PROJECT INFORMATION
+   ========================================= */
+
+.projectInfo {
+  padding-top: 26px;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 60px;
+
+  align-items: end;
+}
+
+.projectInfo > div:first-child {
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+}
+
+.projectNumber {
+  color: rgba(255, 255, 255, 0.34);
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.projectInfo h3 {
+  margin: 0;
+
+  font-size: clamp(32px, 4vw, 62px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.projectMeta {
+  min-width: 260px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 7px;
+
+  color: rgba(255, 255, 255, 0.46);
+
+  font-size: 11px;
+  line-height: 1.3;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   BOTTOM
+   ========================================= */
+
+.bottomLine {
+  margin-top: 110px;
+
+  padding-top: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+
+  color: rgba(255, 255, 255, 0.36);
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 120px 0 130px;
+  }
+
+  .projects {
+    gap: 80px;
+  }
+
+  .projectInfo {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .projectMeta {
+    align-items: flex-start;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 90px 0 100px;
+  }
+
+  .intro {
+    padding: 40px 0 70px;
+  }
+
+  .heading {
+    font-size: clamp(46px, 14vw, 78px);
+    line-height: 0.91;
+  }
+
+  .description {
+    margin-top: 42px;
+
+    font-size: 16px;
+  }
+
+  .projects {
+    gap: 64px;
+  }
+
+  .media {
+    aspect-ratio: 4 / 5;
+  }
+
+  .mediaTop {
+    top: 20px;
+    left: 20px;
+    right: 20px;
+  }
+
+  .mediaTop span:last-child {
+    display: none;
+  }
+
+  .mediaArrow {
+    right: 20px;
+    bottom: 20px;
+
+    width: 48px;
+    height: 48px;
+  }
+
+  .projectInfo {
+    padding-top: 20px;
+  }
+
+  .projectInfo > div:first-child {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .projectInfo h3 {
+    font-size: clamp(32px, 10vw, 48px);
+  }
+
+  .bottomLine {
+    margin-top: 76px;
+  }
+
+  .bottomLine span:last-child {
+    display: none;
+  }
+}
