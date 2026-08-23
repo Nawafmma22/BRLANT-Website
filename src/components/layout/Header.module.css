@@ -311,18 +311,25 @@
 
 @media (max-width: 768px) {
   .header {
-    padding-top: 14px;
+    padding-top: 12px;
   }
 
   .inner {
-    min-height: 58px;
-
-    padding: 0 18px;
-
-    border-radius: 15px;
+    min-height: 56px;
+    padding: 0 16px;
+    border-radius: 14px;
   }
 
   .logo {
-    font-size: 18px;
+    font-size: 17px;
+  }
+
+  .mobileMenu summary {
+    gap: 10px;
+    font-size: 10px;
+  }
+
+  .menuIcon {
+    width: 20px;
   }
 }
