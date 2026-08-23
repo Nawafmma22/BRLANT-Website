@@ -1,0 +1,352 @@
+.section {
+  position: relative;
+
+  min-height: 100svh;
+
+  display: flex;
+  align-items: stretch;
+
+  padding: 140px 0 60px;
+
+  overflow: hidden;
+
+  background: #f1f0ec;
+  color: #0a0a0a;
+}
+
+.section::after {
+  content: "";
+
+  position: absolute;
+  right: -260px;
+  bottom: -300px;
+
+  width: 720px;
+  height: 720px;
+
+  border-radius: 50%;
+
+  background: rgba(78, 62, 255, 0.08);
+  filter: blur(160px);
+
+  pointer-events: none;
+}
+
+.section :global(.container) {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+
+/* =========================================
+   TOP
+   ========================================= */
+
+.topLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 24px;
+
+  border-bottom: 1px solid rgba(10, 10, 10, 0.16);
+}
+
+.label,
+.index {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.16em;
+}
+
+.index {
+  color: rgba(10, 10, 10, 0.4);
+}
+
+
+/* =========================================
+   CONTENT
+   ========================================= */
+
+.content {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 70px 0;
+}
+
+.eyebrow {
+  margin: 0 0 30px;
+
+  color: rgba(10, 10, 10, 0.45);
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.heading {
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  font-size: clamp(64px, 8.4vw, 138px);
+  font-weight: 600;
+  line-height: 0.84;
+  letter-spacing: -0.07em;
+}
+
+.heading span {
+  display: block;
+}
+
+
+/* =========================================
+   CTA
+   ========================================= */
+
+.cta {
+  position: relative;
+
+  margin-top: 80px;
+
+  padding: 30px 0 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-top: 1px solid rgba(10, 10, 10, 0.18);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.18);
+
+  overflow: hidden;
+
+  transition:
+    padding-left 450ms cubic-bezier(0.16, 1, 0.3, 1),
+    padding-right 450ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cta::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: #0a0a0a;
+
+  transform: scaleY(0);
+  transform-origin: bottom;
+
+  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+.cta > span:first-child {
+  color: rgba(10, 10, 10, 0.35);
+
+  font-size: clamp(54px, 7vw, 112px);
+  font-weight: 600;
+  line-height: 0.85;
+  letter-spacing: -0.065em;
+
+  transition: color 300ms ease;
+}
+
+.ctaBottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  color: #0a0a0a;
+
+  font-size: clamp(88px, 13vw, 210px);
+  font-weight: 600;
+  line-height: 0.78;
+  letter-spacing: -0.075em;
+
+  transition:
+    color 300ms ease,
+    transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arrow {
+  flex-shrink: 0;
+
+  width: 86px;
+  height: 86px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 8px;
+
+  border: 1px solid rgba(10, 10, 10, 0.24);
+  border-radius: 50%;
+
+  font-size: 30px;
+
+  transition:
+    color 300ms ease,
+    border-color 300ms ease,
+    background 300ms ease,
+    transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+/* =========================================
+   HOVER
+   ========================================= */
+
+.cta:hover {
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.cta:hover::before {
+  transform: scaleY(1);
+  transform-origin: top;
+}
+
+.cta:hover > span:first-child {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.cta:hover .ctaBottom {
+  color: #ffffff;
+  transform: translateX(8px);
+}
+
+.cta:hover .arrow {
+  color: #0a0a0a;
+
+  background: #ffffff;
+  border-color: #ffffff;
+
+  transform: rotate(45deg);
+}
+
+
+/* =========================================
+   BOTTOM
+   ========================================= */
+
+.bottom {
+  padding-top: 30px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 50px;
+
+  border-top: 1px solid rgba(10, 10, 10, 0.16);
+}
+
+.bottom > span {
+  color: rgba(10, 10, 10, 0.42);
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.bottom p {
+  margin: 0;
+
+  color: rgba(10, 10, 10, 0.5);
+
+  text-align: right;
+
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 1024px) {
+  .section {
+    padding-top: 120px;
+  }
+
+  .ctaBottom {
+    font-size: clamp(80px, 14vw, 160px);
+  }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+  .section {
+    min-height: auto;
+
+    padding: 90px 0 40px;
+  }
+
+  .content {
+    padding: 54px 0 70px;
+  }
+
+  .heading {
+    font-size: clamp(50px, 14vw, 78px);
+    line-height: 0.88;
+  }
+
+  .cta {
+    margin-top: 56px;
+  }
+
+  .cta > span:first-child {
+    font-size: clamp(42px, 12vw, 62px);
+  }
+
+  .ctaBottom {
+    margin-top: 6px;
+
+    font-size: clamp(68px, 19vw, 105px);
+  }
+
+  .arrow {
+    width: 52px;
+    height: 52px;
+
+    margin-bottom: 4px;
+
+    font-size: 20px;
+  }
+
+  .cta:hover {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .bottom {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 22px;
+  }
+
+  .bottom p {
+    text-align: left;
+  }
+}
