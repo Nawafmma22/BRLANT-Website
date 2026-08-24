@@ -28,12 +28,12 @@ export default function Impact() {
   return (
     <section className={styles.section}>
       <Container>
-        <div className={styles.topLine}>
+        <div className={styles.topLine} data-reveal="soft">
           <span className={styles.index}>03</span>
           <span className={styles.label}>OUR IMPACT</span>
         </div>
 
-        <div className={styles.intro}>
+        <div className={styles.intro} data-reveal data-reveal-delay="1">
           <p className={styles.kicker}>BUILT TO DELIVER</p>
 
           <h2 className={styles.heading}>
@@ -44,7 +44,12 @@ export default function Impact() {
 
         <div className={styles.grid}>
           {impactItems.map((item, index) => (
-            <article className={styles.item} key={item.label}>
+            <article
+  className={styles.item}
+  key={item.label}
+  data-reveal="scale"
+  data-reveal-delay={String(index + 1)}
+>
               <div className={styles.itemTop}>
                 <span className={styles.itemIndex}>
                   {String(index + 1).padStart(2, "0")}

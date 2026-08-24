@@ -5,6 +5,7 @@ import "./globals.css";
 
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,11 +36,12 @@ export default function RootLayout({
       id="top"
       className={`${inter.variable} ${interTight.variable}`}
     >
-      <body>
-        <Header />
-        {children}
-        <Footer />
-      </body>
+<body>
+  <ScrollReveal />
+  <Header />
+  {children}
+  <Footer />
+</body>
     </html>
   );
 }
