@@ -36,12 +36,12 @@ export default function WhyBrlant() {
   return (
     <section className={styles.section}>
       <Container>
-        <div className={styles.topLine}>
+        <div className={styles.topLine} data-reveal="soft">
           <span className={styles.label}>WHY BRLANT</span>
           <span className={styles.index}>06</span>
         </div>
 
-        <div className={styles.intro}>
+        <div className={styles.intro} data-reveal data-reveal-delay="1">
           <p className={styles.eyebrow}>HOW WE WORK</p>
 
           <h2 className={styles.heading}>
@@ -66,8 +66,13 @@ export default function WhyBrlant() {
         </div>
 
         <div className={styles.principles}>
-          {principles.map((principle) => (
-            <article className={styles.principle} key={principle.number}>
+          {principles.map((principle, index) => (
+            <article
+  className={styles.principle}
+  key={principle.number}
+  data-reveal="soft"
+  data-reveal-delay={String((index % 4) + 1)}
+>
               <span className={styles.number}>{principle.number}</span>
 
               <div className={styles.principleTitle}>
