@@ -45,12 +45,12 @@ export default function Services() {
   return (
     <section id="services" className={styles.section}>
       <Container>
-        <div className={styles.topLine}>
+        <div className={styles.topLine} data-reveal="soft">
           <span className={styles.label}>WHAT WE DO</span>
           <span className={styles.index}>04</span>
         </div>
 
-        <div className={styles.intro}>
+        <div className={styles.intro} data-reveal data-reveal-delay="1">
           <p className={styles.eyebrow}>OUR CAPABILITIES</p>
 
           <h2 className={styles.heading}>
@@ -74,8 +74,13 @@ export default function Services() {
         </div>
 
         <div className={styles.list}>
-          {services.map((service) => (
-            <article className={styles.service} key={service.number}>
+          {services.map((service, index) => (
+            <article
+  className={styles.service}
+  key={service.number}
+  data-reveal="soft"
+  data-reveal-delay={String((index % 4) + 1)}
+>
               <span className={styles.serviceNumber}>{service.number}</span>
 
               <h3 className={styles.serviceTitle}>{service.title}</h3>
