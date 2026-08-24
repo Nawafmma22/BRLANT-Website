@@ -6,6 +6,7 @@ import SelectedProjects from "@/components/sections/home/SelectedProjects";
 import WhyBrlant from "@/components/sections/home/WhyBrlant";
 import Clients from "@/components/sections/home/Clients";
 import FinalCTA from "@/components/sections/home/FinalCTA";
+import ContactForm from "@/components/sections/contact/ContactForm";
 
 export default function Home() {
   return (
