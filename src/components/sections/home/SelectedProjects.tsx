@@ -29,12 +29,12 @@ export default function SelectedProjects() {
   return (
     <section id="projects" className={styles.section}>
       <Container>
-        <div className={styles.topLine}>
+        <div className={styles.topLine} data-reveal="soft">
           <span className={styles.index}>05</span>
           <span className={styles.label}>SELECTED EXPERIENCE</span>
         </div>
 
-        <div className={styles.intro}>
+        <div className={styles.intro} data-reveal data-reveal-delay="1">
           <p className={styles.eyebrow}>OUR WORK</p>
 
           <h2 className={styles.heading}>
@@ -50,9 +50,13 @@ export default function SelectedProjects() {
         </div>
 
         <div className={styles.projects}>
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <article className={styles.project} key={project.number}>
-              <div className={`${styles.media} ${project.className}`}>
+              <div
+  className={`${styles.media} ${project.className}`}
+  data-reveal="scale"
+  data-reveal-delay={String((index % 3) + 1)}
+>
                 <div className={styles.mediaOverlay} />
 
                 <div className={styles.mediaTop}>
@@ -65,7 +69,11 @@ export default function SelectedProjects() {
                 </div>
               </div>
 
-              <div className={styles.projectInfo}>
+              <div
+  className={styles.projectInfo}
+  data-reveal="soft"
+  data-reveal-delay={String((index % 3) + 2)}
+>
                 <div>
                   <span className={styles.projectNumber}>
                     {project.number}
@@ -83,7 +91,7 @@ export default function SelectedProjects() {
           ))}
         </div>
 
-        <div className={styles.bottomLine}>
+        <div className={styles.bottomLine} data-reveal="soft">
           <span>SELECTED EXPERIENCE · BRLANT</span>
           <span>MORE TO COME</span>
         </div>
