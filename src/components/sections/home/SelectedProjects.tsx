@@ -69,10 +69,10 @@ export default function SelectedProjects() {
                 </div>
               </div>
 
-              <div
+             <div
   className={styles.projectInfo}
   data-reveal="soft"
-  data-reveal-delay={String((index % 3) + 2)}
+  data-reveal-delay="1"
 >
                 <div>
                   <span className={styles.projectNumber}>
