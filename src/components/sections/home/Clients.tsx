@@ -16,12 +16,12 @@ export default function Clients() {
   return (
     <section className={styles.section}>
       <Container>
-        <div className={styles.topLine}>
+        <div className={styles.topLine} data-reveal="soft">
           <span className={styles.index}>07</span>
           <span className={styles.label}>CLIENTS & PARTNERS</span>
         </div>
 
-        <div className={styles.intro}>
+        <div className={styles.intro} data-reveal data-reveal-delay="1">
           <p className={styles.eyebrow}>TRUSTED EXPERIENCE</p>
 
           <h2 className={styles.heading}>
@@ -41,7 +41,12 @@ export default function Clients() {
         <Container>
           <div className={styles.grid}>
             {clients.map((client, index) => (
-              <div className={styles.client} key={client}>
+              <div
+  className={styles.client}
+  key={client}
+  data-reveal="scale"
+  data-reveal-delay={String((index % 4) + 1)}
+>
                 <span className={styles.clientIndex}>
                   {String(index + 1).padStart(2, "0")}
                 </span>
@@ -54,7 +59,7 @@ export default function Clients() {
       </div>
 
       <Container>
-        <div className={styles.bottom}>
+        <div className={styles.bottom} data-reveal="soft">
           <p>
             Different industries.
             <br />
