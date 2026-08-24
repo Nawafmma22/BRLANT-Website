@@ -18,6 +18,7 @@ export default function Home() {
       <WhyBrlant />
       <Clients />
       <FinalCTA />
+      <ContactForm />
     </main>
   );
 }

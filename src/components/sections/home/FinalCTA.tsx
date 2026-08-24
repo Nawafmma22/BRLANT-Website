@@ -4,7 +4,7 @@ import styles from "./FinalCTA.module.css";
 
 export default function FinalCTA() {
   return (
-    <section id="contact" className={styles.section}>
+    <section className={styles.section}>
       <Container>
         <div className={styles.topLine} data-reveal="soft">
           <span className={styles.label}>LET&apos;S TALK</span>
