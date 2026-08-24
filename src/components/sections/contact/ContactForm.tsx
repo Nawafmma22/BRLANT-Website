@@ -1,12 +1,61 @@
 "use client";
 
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import Container from "@/components/ui/Container";
 import styles from "./ContactForm.module.css";
 
+type FormStatus = "idle" | "sending" | "success" | "error";
+
 export default function ContactForm() {
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    const form = event.currentTarget;
+
+    setStatus("sending");
+    setErrorMessage("");
+
+    const formData = new FormData(form);
+
+    const payload = {
+      name: String(formData.get("name") || ""),
+      company: String(formData.get("company") || ""),
+      email: String(formData.get("email") || ""),
+      phone: String(formData.get("phone") || ""),
+      projectType: String(formData.get("projectType") || ""),
+      eventDate: String(formData.get("eventDate") || ""),
+      message: String(formData.get("message") || ""),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Unable to send your project brief.");
+      }
+
+      form.reset();
+      setStatus("success");
+    } catch (error) {
+      setStatus("error");
+
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again."
+      );
+    }
   }
 
   return (
@@ -105,21 +154,34 @@ export default function ContactForm() {
                   <option value="" disabled>
                     Select project type
                   </option>
-                  <option value="event-management">Event Management</option>
+
+                  <option value="event-management">
+                    Event Management
+                  </option>
+
                   <option value="exhibitions-conferences">
                     Exhibitions & Conferences
                   </option>
+
                   <option value="creative-production">
                     Creative & Production
                   </option>
+
                   <option value="operations-logistics">
                     Operations & Logistics
                   </option>
-                  <option value="staffing">Staffing & Crowd Management</option>
+
+                  <option value="staffing">
+                    Staffing & Crowd Management
+                  </option>
+
                   <option value="vip-guest">
                     VIP & Guest Experience
                   </option>
-                  <option value="other">Other</option>
+
+                  <option value="other">
+                    Other
+                  </option>
                 </select>
               </label>
 
@@ -141,14 +203,37 @@ export default function ContactForm() {
             </label>
 
             <div className={styles.formBottom}>
-              <p>
-                By submitting, you&apos;re sharing your project details with
-                BRLANT for the purpose of discussing your enquiry.
-              </p>
+              <div className={styles.formMessage}>
+                {status === "success" ? (
+                  <p className={styles.successMessage}>
+                    Project brief received. Our team will be in touch.
+                  </p>
+                ) : status === "error" ? (
+                  <p className={styles.errorMessage}>
+                    {errorMessage}
+                  </p>
+                ) : (
+                  <p>
+                    By submitting, you&apos;re sharing your project details with
+                    BRLANT for the purpose of discussing your enquiry.
+                  </p>
+                )}
+              </div>
 
-              <button type="submit" className={styles.submit}>
-                SEND PROJECT BRIEF
-                <span aria-hidden="true">↗</span>
+              <button
+                type="submit"
+                className={styles.submit}
+                disabled={status === "sending" || status === "success"}
+              >
+                {status === "sending"
+                  ? "SENDING..."
+                  : status === "success"
+                    ? "PROJECT RECEIVED ✓"
+                    : "SEND PROJECT BRIEF"}
+
+                {status !== "success" && (
+                  <span aria-hidden="true">↗</span>
+                )}
               </button>
             </div>
           </form>

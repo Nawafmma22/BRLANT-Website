@@ -342,3 +342,30 @@
     width: 100%;
   }
 }
+.formMessage {
+  max-width: 390px;
+}
+
+.formMessage p {
+  margin: 0;
+}
+
+.successMessage {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+.errorMessage {
+  color: #ff8f8f !important;
+}
+
+.submit:disabled {
+  cursor: default;
+}
+
+.submit:disabled:hover {
+  transform: none;
+}
+
+.submit:disabled:hover span {
+  transform: none;
+}
