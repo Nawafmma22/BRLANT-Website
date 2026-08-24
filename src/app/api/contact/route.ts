@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 function escapeHtml(value: string) {
   return value
     .replaceAll("&", "&amp;")
@@ -31,11 +29,27 @@ export async function POST(request: Request) {
       );
     }
 
-    const toEmail = process.env.CONTACT_TO_EMAIL;
-    const fromEmail =
-      process.env.CONTACT_FROM_EMAIL || "BRLANT Website <onboarding@resend.dev>";
+const apiKey = process.env.RESEND_API_KEY;
+const toEmail = process.env.CONTACT_TO_EMAIL;
 
-    if (!process.env.RESEND_API_KEY || !toEmail) {
+const fromEmail =
+  process.env.CONTACT_FROM_EMAIL ||
+  "BRLANT Website <onboarding@resend.dev>";
+
+if (!apiKey || !toEmail) {
+  console.error("Missing email environment variables", {
+    hasResendApiKey: Boolean(apiKey),
+    hasContactToEmail: Boolean(toEmail),
+  });
+
+  return NextResponse.json(
+    { error: "Email service is not configured." },
+    { status: 500 }
+  );
+}
+
+const resend = new Resend(apiKey);
+
       return NextResponse.json(
         { error: "Email service is not configured." },
         { status: 500 }
