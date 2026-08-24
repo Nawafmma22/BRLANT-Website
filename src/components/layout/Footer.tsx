@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import styles from "./Footer.module.css";
+import Image from "next/image";
 
 const navigation = [
   { label: "About", href: "/#about" },
@@ -51,8 +52,14 @@ export default function Footer() {
         </div>
 
         <div className={styles.wordmark} aria-hidden="true">
-          BRLANT
-        </div>
+  <Image
+    src="/brand/brlant-wordmark.svg"
+    alt=""
+    width={461}
+    height={132}
+    className={styles.wordmarkImage}
+  />
+</div>
 
         <div className={styles.bottom}>
           <span>© {new Date().getFullYear()} BRLANT</span>

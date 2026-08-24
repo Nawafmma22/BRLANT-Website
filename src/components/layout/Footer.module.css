@@ -99,19 +99,15 @@
    ========================================= */
 
 .wordmark {
-  margin-top: 22px;
-
+  margin-top: 30px;
+  width: 100%;
   overflow: hidden;
+}
 
-  font-size: clamp(120px, 22vw, 370px);
-  font-weight: 700;
-  line-height: 0.78;
-  letter-spacing: -0.085em;
-  white-space: nowrap;
-
-  color: #ffffff;
-
-  user-select: none;
+.wordmarkImage {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 
@@ -193,11 +189,14 @@
     grid-column: auto;
   }
 
-  .wordmark {
-    margin-top: 18px;
+.wordmark {
+  margin-top: 24px;
+}
 
-    font-size: clamp(92px, 30vw, 160px);
-  }
+.wordmarkImage {
+  width: 100%;
+  height: auto;
+}
 
   .bottom {
     grid-template-columns: 1fr;
