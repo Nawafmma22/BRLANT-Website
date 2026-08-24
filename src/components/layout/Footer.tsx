@@ -14,7 +14,10 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <Container>
-        <div className={styles.top}>
+        <div
+  className={styles.top}
+  data-reveal="soft"
+>
           <div className={styles.intro}>
             <span className={styles.label}>BRLANT</span>
 
@@ -51,7 +54,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className={styles.wordmark} aria-hidden="true">
+        <div
+  className={styles.wordmark}
+  aria-hidden="true"
+  data-reveal="scale"
+  data-reveal-delay="1"
+>
   <Image
     src="/brand/brlant-wordmark.svg"
     alt=""
@@ -61,7 +69,11 @@ export default function Footer() {
   />
 </div>
 
-        <div className={styles.bottom}>
+        <div
+  className={styles.bottom}
+  data-reveal="soft"
+  data-reveal-delay="2"
+>
           <span>© {new Date().getFullYear()} BRLANT</span>
 
           <span>EVENTS · EXHIBITIONS · EXPERIENCES</span>
